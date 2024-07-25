@@ -1,0 +1,9 @@
+---
+
+- name: Open Firewall ports
+  ansible.posix.firewalld:
+    port: "{{ host_port }}/tcp"
+    permanent: true
+    state: enabled
+  become: true
+  notify: Reload Firewalld
